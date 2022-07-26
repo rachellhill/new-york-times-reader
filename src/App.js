@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import Articles from './Articles';
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -9,8 +10,9 @@ const App = () => {
     try {
       const response = await fetch(url)
       const articles = await response.json()
-      setArticles(articles)
+      setArticles(articles.results)
     } catch(error) {
+      // remove error - add error handling
       console.log(error)
     }
   }
@@ -18,6 +20,14 @@ const App = () => {
   useEffect(() => {
     fetchData()
   }, [])
+
+  return (
+    <div>
+      <Articles 
+        articles={articles}
+      />
+    </div>
+  )
 }
 
 export default App;
