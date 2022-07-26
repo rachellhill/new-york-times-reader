@@ -5,13 +5,19 @@ import './Articles.css';
 const Articles = ({ articles }) => {
     console.log(articles)
     const articleCards = articles.map((article, index) => {
-        return (
             <ArticleCard 
                 {...article}
                 key={index}
             />
-        )
     })
-}
+
+        return (
+            <section>
+                <h1>hi</h1>
+                <div>{articleCards}</div>
+            </section>
+        )
+    }
+
 
 export default Articles;
