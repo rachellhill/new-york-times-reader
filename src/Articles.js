@@ -17,7 +17,6 @@ const Articles = ({ articles }) => {
 
         return (
             <section>
-                <h1>hi</h1>
                 <div>{articleCards}</div>
             </section>
         )

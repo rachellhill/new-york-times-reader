@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Articles from './Articles';
+import Nav from './Nav'
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -23,6 +24,7 @@ const App = () => {
 
   return (
     <div>
+      <Nav /> 
       <Articles 
         articles={articles}
       />
