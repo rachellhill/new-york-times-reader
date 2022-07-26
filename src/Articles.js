@@ -5,10 +5,16 @@ import './Articles.css';
 const Articles = ({ articles }) => {
     console.log(articles)
     const articleCards = articles.map((article, index) => {
+        return (
             <ArticleCard 
-                {...article}
+                title={article.title}
                 key={index}
+                byline={article.byline}
+                abstract={article.abstract}
+                published={article.published_date}
+                lastUpdated={article.updated_date}
             />
+        )
     })
 
         return (
