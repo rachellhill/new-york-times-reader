@@ -6,14 +6,15 @@ import Filter from './Filter';
 
 const App = () => {
   const [articles, setArticles] = useState([]);
-  const [section, setSection] = useState('');
+  const [section, setSection] = useState('home');
 
   const fetchData = async () => {
-    const url = 'https://api.nytimes.com/svc/topstories/v2/home.json?api-key=nhMjxLLY9q8nUWSK6HWsK65vMVRqNkUi'
+    const url = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=nhMjxLLY9q8nUWSK6HWsK65vMVRqNkUi`
     try {
       const response = await fetch(url)
       const articles = await response.json()
       setArticles(articles.results)
+      console.log(articles)
     } catch(error) {
       // remove error - add error handling
       console.log(error)
@@ -22,13 +23,7 @@ const App = () => {
 
   useEffect(() => {
     fetchData()
-  }, [])
-
-  // filter component with each section as a button and if the button is clicked, it will fetch and display those 
-
-  const filterArticles = () => {
-    // create a use effect that watches 
-  }
+  }, [section])
 
   return (
     <div>
