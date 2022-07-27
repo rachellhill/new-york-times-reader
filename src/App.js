@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Articles from './Articles';
 import Nav from './Nav'
 import Filter from './Filter';
+import ArticleDetails from './ArticleDetails';
+import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -32,9 +34,15 @@ const App = () => {
         section={section}
         setSection={setSection}
       />
-      <Articles 
-        articles={articles}
-      />
+      <Switch>
+        <Route exact path='/'> 
+          <Articles 
+            articles={articles}
+          />
+        </Route>
+        <Route exact path='/article/:id' render={({ match }) => <ArticleDetails id={ match.params.id } articles={articles}/>}>
+        </Route>
+      </Switch>
     </div>
   )
 }
