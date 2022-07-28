@@ -6,7 +6,9 @@ const Nav = () => {
     return (
         <div className='nav-container'>
             <h1>NY TIMES NEWS READER</h1>
-            <button>HOME</button>
+            <div className='home-btn-container'>
+                <button className='home-btn'>HOME</button>
+            </div>
         </div>
     )
 }
