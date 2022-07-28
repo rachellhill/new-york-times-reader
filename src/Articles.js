@@ -7,7 +7,7 @@ const Articles = ({ articles }) => {
     console.log(articles)
     const articleCards = articles.map((article, index) => {
         return (
-            <Link to={`/article/${index}`} key={index}>
+            <Link to={`/article/${index}`} style={{textDecoration: 'none', color: 'black', fontFamily: 'Lora'}} className='article-card' key={index}>
                 <ArticleCard 
                     title={article.title}
                     abstract={article.abstract}
@@ -18,9 +18,7 @@ const Articles = ({ articles }) => {
     })
 
         return (
-            <section>
-                <div>{articleCards}</div>
-            </section>
+            <div className='articles-container'>{articleCards}</div>
         )
     }
 
