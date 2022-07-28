@@ -30,15 +30,15 @@ const App = () => {
   return (
     <div>
       <Nav /> 
-      <Filter 
-        section={section}
-        setSection={setSection}
-      />
       <Switch>
         <Route exact path='/'> 
+          <Filter 
+            section={section}
+            setSection={setSection}
+          />
           <Articles 
             articles={articles}
-          />
+          />  
         </Route>
         <Route exact path='/article/:id' render={({ match }) => <ArticleDetails id={ match.params.id } articles={articles}/>}>
         </Route>
